@@ -1,0 +1,133 @@
+@import "_global.scss";
+
+body {
+	margin:0;
+	padding:0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	background-color: #065282;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+}
+#content {
+	z-index: 1;
+	background: url("../img/bg-lines.png") repeat;
+	min-height: 100%;
+}
+
+.body {
+	margin: 0 auto;
+	color: #fff;
+	padding-bottom: 50px + 10px; // footer links + spacing
+}
+
+h1, h2, h4 {
+	font-weight: normal;
+}
+
+h1, h2 {
+	background: url("../img/bg-header.png") center center;
+}
+
+h2 {
+	padding: 5px 15px;
+
+	span {
+		display: block;
+	}
+}
+
+h3, h4 {
+	text-shadow: 0px 0px 5px #000;
+}
+
+h3 {
+	font-family: "OpenSans Light", sans-serif;
+	font-weight: bold;
+}
+
+@include keyframes(slide-up) {
+	from {background-position:top center;}
+	to {background-position:bottom center;}
+}
+
+@include keyframes(slide-down) {
+	from {background-position:bottom center;}
+	to {background-position:top center;}
+}
+
+.current {
+	display: block;
+	width: 700px;
+	max-width: 100%;
+}
+
+.thumbs a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.slide-up {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	@include roundedCorners();
+	border: 4px solid #fff;
+	box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
+
+	@include addPrefixes(animation, slide-down ease-in 1);
+	// this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)
+	@include addPrefixes(animation-fill-mode, forwards);
+	@include addPrefixes(animation-duration, .2s);
+	@include addPrefixes(animation-delay, 0s);
+
+	img {
+		opacity: 0;
+		max-width: 100%;
+	}
+}
+
+a:hover .slide-up {
+	border-color: #22c1ff;
+	@include addPrefixes(animation, slide-up ease-in 1);
+	// this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)
+	@include addPrefixes(animation-fill-mode, forwards);
+	@include addPrefixes(animation-duration, .2s);
+	@include addPrefixes(animation-delay, 0s);
+}
+
+footer {
+	width: 100%;
+	@include boxSizing();
+	bottom: 0;
+
+	a {
+		font-size: 0;
+		line-height: 0;
+		color: transparent;
+		text-indent: -9999px;
+		display: inline-block;
+		height: 50px;
+		width: 50px;
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0,.5);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
+a.facebook {
+	background-image: url("../img/facebook.png");
+}
+a.facebook:hover {
+	background-color: #4b6ea9;
+}
+
+a.confluence {
+	background-image: url("../img/confluence.png");
+}
+a.confluence:hover {
+	background-color: #222746;
+}

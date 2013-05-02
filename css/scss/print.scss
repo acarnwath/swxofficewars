@@ -1,0 +1,168 @@
+@import "_global.scss";
+
+// ==========================================================================
+//   Print styles from HTML5 Boilerplate
+//   Inlined to avoid required HTTP connection: h5bp.com/r
+// ==========================================================================
+* {
+	background: transparent !important;
+	color: #000 !important; // Black prints faster: h5bp.com/s
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+
+a,
+a:visited {
+	text-decoration: underline;
+}
+
+a[href]:after {
+	content: " (" attr(href) ")";
+	-ms-word-wrap: break-word;
+	word-break: break-word; ///// Added by Author
+}
+
+.ie8 a[href]:after {
+	display: block;
+}
+
+abbr[title]:after {
+	content: " (" attr(title) ")";
+}
+
+// Don't show links for images, or javascript/internal links
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+	content: "";
+}
+
+pre,
+blockquote {
+	border: 1px solid #999;
+	page-break-inside: avoid;
+}
+
+thead {
+	display: table-header-group; // h5bp.com/t
+}
+
+tr,
+img {
+	page-break-inside: avoid;
+}
+
+img {
+	max-width: 100% !important;
+}
+
+@page {
+	margin: 0.5cm;
+}
+
+p,
+h2,
+h3 {
+	orphans: 3;
+	widows: 3;
+}
+
+h2,
+h3 {
+	page-break-after: avoid;
+}
+
+// ==========================================================================
+//   Author Print styles
+// ==========================================================================
+
+$base-fontsize: 14px;
+
+body {
+	font-size: $base-fontsize;
+}
+
+img {
+	filter: gray; // IE 6-9
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%); // CSS3
+}
+
+#content {
+	padding: 20px;
+}
+
+h2 {
+	font-family: "OpenSans Light", sans-serif;
+}
+
+h3 {
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+.thumbs {
+	font-size: 0; // remove spaces between lis
+
+	@if($numThumbs > 4) {
+		text-align: center;
+	}
+	
+	.slide-up {
+		margin-bottom: 15px;
+	}	
+
+	li {
+		font-size: $base-fontsize;
+		margin-left: 3%;
+		
+		@if($numThumbs > 4) {
+			text-align: left; // couteract the text-align: center;
+
+			@if ($numThumbs%3 == 0 or $numThumbs%3 == 2){
+				width: (100% - (3% * 2))/3; // rows of three
+				&:nth-child(3n+1) {
+					margin-left: 0;
+				}
+				&:nth-child(n+4) {
+					margin-top: 10px;
+				}
+			} @else {
+				width: (100% - (3% * 3))/4; // rows of four
+				&:nth-child(4n+1) {
+					margin-left: 0;
+				}
+				&:nth-child(n+5) {
+					margin-top: 10px;
+				}
+			}
+		} @else {
+			width: (100% - (3% * ($numThumbs - 1)))/$numThumbs;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+
+	a[href]:after {
+		font-size: 12px;
+		font-weight: normal;
+	}
+} // .thumbs
+
+footer {
+	margin-top: 20px;
+
+	a {
+		display: list-item;
+		float: left;
+		clear: both;
+		font-size: 14px;
+	}
+}

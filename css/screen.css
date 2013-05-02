@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: #065282; }
+
+html, body {
+  height: 100%;
+  width: 100%; }
+
+#content {
+  z-index: 1;
+  background: url("../img/bg-lines.png") repeat;
+  min-height: 100%; }
+
+.body {
+  margin: 0 auto;
+  color: #fff;
+  padding-bottom: 60px; }
+
+h1, h2, h4 {
+  font-weight: normal; }
+
+h1, h2 {
+  background: url("../img/bg-header.png") center center; }
+
+h2 {
+  padding: 5px 15px; }
+  h2 span {
+    display: block; }
+
+h3, h4 {
+  text-shadow: 0px 0px 5px #000; }
+
+h3 {
+  font-family: "OpenSans Light", sans-serif;
+  font-weight: bold; }
+
+@-webkit-keyframes slide-up {
+  from {
+    background-position: top center; }
+
+  to {
+    background-position: bottom center; } }
+
+@-moz-keyframes slide-up {
+  from {
+    background-position: top center; }
+
+  to {
+    background-position: bottom center; } }
+
+@-o-keyframes slide-up {
+  from {
+    background-position: top center; }
+
+  to {
+    background-position: bottom center; } }
+
+@keyframes slide-up {
+  from {
+    background-position: top center; }
+
+  to {
+    background-position: bottom center; } }
+
+@-webkit-keyframes slide-down {
+  from {
+    background-position: bottom center; }
+
+  to {
+    background-position: top center; } }
+
+@-moz-keyframes slide-down {
+  from {
+    background-position: bottom center; }
+
+  to {
+    background-position: top center; } }
+
+@-o-keyframes slide-down {
+  from {
+    background-position: bottom center; }
+
+  to {
+    background-position: top center; } }
+
+@keyframes slide-down {
+  from {
+    background-position: bottom center; }
+
+  to {
+    background-position: top center; } }
+
+.current {
+  display: block;
+  width: 700px;
+  max-width: 100%; }
+
+.thumbs a {
+  text-decoration: none;
+  color: #fff; }
+
+.slide-up {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 4px solid #fff;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  -webkit-animation: slide-down ease-in 1;
+  -moz-animation: slide-down ease-in 1;
+  -o-animation: slide-down ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s; }
+  .slide-up img {
+    opacity: 0;
+    max-width: 100%; }
+
+a:hover .slide-up {
+  border-color: #22c1ff;
+  -webkit-animation: slide-up ease-in 1;
+  -moz-animation: slide-up ease-in 1;
+  -o-animation: slide-up ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s; }
+
+footer {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  bottom: 0; }
+  footer a {
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    text-indent: -9999px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-position: center center; }
+
+a.facebook {
+  background-image: url("../img/facebook.png"); }
+
+a.facebook:hover {
+  background-color: #4b6ea9; }
+
+a.confluence {
+  background-image: url("../img/confluence.png"); }
+
+a.confluence:hover {
+  background-color: #222746; }

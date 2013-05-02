@@ -1,0 +1,72 @@
+@import "_global.scss";
+
+body {
+	background-image: url("../img/bg-small.jpg");
+}
+
+#content {
+	position: relative;
+}
+
+$base-fontsize: 14px;
+.body {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: $base-fontsize;
+}
+
+h1 {
+	padding: 10px;
+	font-size: 22px;
+	margin: 0;
+}
+h2 span {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: $base-fontsize;
+}
+
+h4 {
+	font-size: 12px;
+}
+
+.current {
+	margin-bottom: 1em; // same margin as p tag
+}
+
+.thumbs {
+	text-align: center;
+	font-size: 0; // remove space between lis
+
+	.slide-up {
+		margin-bottom: 5px;
+	}
+
+	li {
+		font-size: $base-fontsize;
+		margin-top: 10px;
+		max-width: (100% - 5%)/2;
+		margin-left: 5%;
+
+		&:nth-child(1), &:nth-child(2) {
+			margin-top: 0;
+		}
+
+		&:nth-child(2n + 1) {
+			margin-left: 0;
+		}
+	}
+
+	a {
+		margin: 0 auto;
+		max-width: 100%;
+	}
+}
+
+footer {
+	text-align: center;
+	position: absolute;
+}

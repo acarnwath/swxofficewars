@@ -1,0 +1,130 @@
+@import "_global.scss";
+
+body {
+	background-image: url("../img/bg-large.jpg");
+}
+
+@media screen and (min-width:1600px) {
+	body {
+		background-image: url("../img/bg-xlarge.png"); // fades out to background color for really large displays
+	}
+}
+
+$base-fontsize: 18px;
+.body {
+	max-width: 980px;
+	width: 95%;
+	font-size: $base-fontsize;
+}
+
+header {
+	padding-top: 225px;
+	overflow: hidden;
+}
+
+h1, h2 {
+	////float: left;
+	display: inline-block;
+
+	&:after {
+		content: "\a";
+	}
+}
+
+h1 {
+	padding: 15px 25px;
+	font-size: 30px;
+}
+
+h2 {
+	margin-top: 80px;
+
+	span {
+		font-size: 24px;
+	}
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+p {
+	max-width: 50%;
+}
+
+@include keyframes(fade-in) {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+.thumbs {
+	@if($numThumbs > 4) {
+		text-align: center;
+	}
+
+	.slide-up {
+		margin-bottom: 15px;
+	}
+
+	li {
+		font-size: $base-fontsize;
+		margin-left: 3%;
+		
+		@if($numThumbs > 4) {
+			text-align: left; // couteract the text-align: center;
+
+			@if ($numThumbs%3 == 0 or $numThumbs%3 == 2){
+				width: (100% - (3% * 2))/3; // rows of three
+				&:nth-child(3n+1) {
+					margin-left: 0;
+				}
+				&:nth-child(n+4) {
+					margin-top: 10px;
+				}
+			} @else {
+				width: (100% - (3% * 3))/4; // rows of four
+				&:nth-child(4n+1) {
+					margin-left: 0;
+				}
+				&:nth-child(n+5) {
+					margin-top: 10px;
+				}
+			}
+		} @else {
+			width: (100% - (3% * ($numThumbs - 1)))/$numThumbs;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		opacity: 0;
+		@include addPrefixes(animation, fade-in ease-in 1);
+		// this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)
+		@include addPrefixes(animation-fill-mode,forwards);
+		@include addPrefixes(animation-duration, .4s);
+
+		@for $child from 1 through $numThumbs {
+			&:nth-child(#{$child}) {
+				@include addPrefixes(animation-delay, .2*$child#{s});
+			}
+		}
+	} // li
+
+	a {
+		max-width: 100%;
+	}
+} // .thumbs
+
+footer {
+	text-align: right;
+	position: fixed;
+	right: 30px;
+}
+
+.ie9 .thumbs li {
+	opacity: 1;
+}

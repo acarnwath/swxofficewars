@@ -1,0 +1,77 @@
+body {
+	padding: 20px;
+}
+
+.sunburst {
+	display: none;
+}
+
+.content {
+	min-height: auto !important;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'PT Sans Caption', sans-serif;
+}
+
+h1, h2, h3 {
+	text-align: center;
+	margin: 0;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+h3 {
+	margin-bottom: 30px;
+}
+
+p {
+	font-family: 'PT Sans';
+}
+
+.back {
+	display: block;
+	text-align: center;
+	width: 200px;
+	overflow: visible;
+	margin: 0 auto;
+}
+
+a.button {
+	display: list-item;
+	float: left;
+	clear: both;
+}
+
+.col {
+	overflow: hidden;
+	float: left;
+	width: 45%;
+	margin-left: 5%;
+}
+
+.left {
+	margin-right: 5%;
+	margin-left: 0;
+}
+
+.body {
+	overflow: hidden;
+}
+
+.footer-img {
+	display: none;
+}
+
+footer {
+	margin-top: 20px;
+}
+
+footer a {
+	display: list-item;
+	float: left;
+	clear: both;
+}

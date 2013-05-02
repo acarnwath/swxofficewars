@@ -1,0 +1,147 @@
+// ==========================================================================
+//   Helper classes from HTML5 Boilerplate
+// ========================================================================== 
+
+// Image replacement
+%ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	*text-indent: -9999px;
+	
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+%hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+%visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	// Extends the .visuallyhidden class to allow the element to be focusable
+	// when navigated to via the keyboard: h5bp.com/p
+	&.focusable {
+		&:active, &:focus {
+			clip: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			position: static;
+			width: auto;
+		}
+	}
+}
+
+// Hide visually and from screenreaders, but maintain layout
+%invisible {
+	visibility: hidden;
+}
+
+// Clearfix: contain floats
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    `contenteditable` attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+%clearfix {
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+	// For IE 6/7 only
+	// Include this rule to trigger hasLayout and contain floats.
+	*zoom: 1;
+}
+
+///////////// Authors Variables
+
+$numThumbs: 4;
+
+///////////// Authors Helpers
+
+
+@mixin roundedCorners($px:3px, $which:'all') {
+
+	@if($which == "all") {
+		-webkit-border-radius: $px;
+		-moz-border-radius: $px;
+		border-radius: $px;
+	} @else {
+
+		@if ($which == "top" or $which == "left") {
+			-webkit-border-top-left-radius: $px;
+			-moz-border-top-left-radius: $px;
+			border-top-left-radius: $px;
+		}
+		
+		@if ($which == "bottom" or $which == "left") {
+			-webkit-border-bottom-left-radius: $px;
+			-moz-border-bottom-left-radius: $px;
+			border-bottom-left-radius: $px;
+		}
+		
+		@if ($which == "top" or $which == "right") {
+			-webkit-border-top-right-radius: $px;
+			-moz-border-top-right-radius: $px;
+			border-top-right-radius: $px;
+		}
+		
+		@if ($which == "bottom" or $which == "right") {
+			-webkit-border-bottom-right-radius: $px;
+			-moz-border-bottom-right-radius: $px;
+			border-bottom-right-radius: $px;
+		}
+	}
+}
+
+@mixin boxSizing($v:border-box) {
+	-webkit-box-sizing: $v;
+	-moz-box-sizing: $v;
+	box-sizing: $v;
+}
+
+@mixin keyframes( $animationName )
+{
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+}
+
+@mixin addPrefixes($key, $value) {
+	-webkit-#{$key}: $value;
+	-moz-#{$key}: $value;
+	-o-#{$key}: $value;
+	$key: $value;
+}

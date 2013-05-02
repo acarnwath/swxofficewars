@@ -1,0 +1,110 @@
+body {
+  background-image: url("../img/bg-large.jpg"); }
+
+@media screen and (min-width: 1600px) {
+  body {
+    background-image: url("../img/bg-xlarge.png"); } }
+.body {
+  max-width: 980px;
+  width: 95%;
+  font-size: 18px; }
+
+header {
+  padding-top: 225px;
+  overflow: hidden; }
+
+h1, h2 {
+  display: inline-block; }
+  h1:after, h2:after {
+    content: "\a"; }
+
+h1 {
+  padding: 15px 25px;
+  font-size: 30px; }
+
+h2 {
+  margin-top: 80px; }
+  h2 span {
+    font-size: 24px; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 14px; }
+
+p {
+  max-width: 50%; }
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fade-in {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-o-keyframes fade-in {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+.thumbs .slide-up {
+  margin-bottom: 15px; }
+.thumbs li {
+  font-size: 18px;
+  margin-left: 3%;
+  width: 22.75%;
+  opacity: 0;
+  -webkit-animation: fade-in ease-in 1;
+  -moz-animation: fade-in ease-in 1;
+  -o-animation: fade-in ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  -o-animation-duration: 0.4s; }
+  .thumbs li:first-child {
+    margin-left: 0; }
+  .thumbs li:nth-child(1) {
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -o-animation-delay: 0.2s; }
+  .thumbs li:nth-child(2) {
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    -o-animation-delay: 0.4s; }
+  .thumbs li:nth-child(3) {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    -o-animation-delay: 0.6s; }
+  .thumbs li:nth-child(4) {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    -o-animation-delay: 0.8s; }
+.thumbs a {
+  max-width: 100%; }
+
+footer {
+  text-align: right;
+  position: fixed;
+  right: 30px; }
+
+.ie9 .thumbs li {
+  opacity: 1; }
