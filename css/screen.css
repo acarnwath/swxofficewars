@@ -160,15 +160,23 @@ footer {
     background-color: rgba(0, 0, 0, 0.5);
     background-repeat: no-repeat;
     background-position: center center; }
+    footer a:hover {
+      background-color: #065282; }
 
 a.facebook {
-  background-image: url("../img/facebook.png"); }
+  background-image: url("../img/footer-facebook.png"); }
 
 a.facebook:hover {
   background-color: #4b6ea9; }
 
 a.confluence {
-  background-image: url("../img/confluence.png"); }
+  background-image: url("../img/footer-confluence.png"); }
 
 a.confluence:hover {
   background-color: #222746; }
+
+a.home {
+  background-image: url("../img/footer-home.png"); }
+
+a.results {
+  background-image: url("../img/footer-results.png"); }
