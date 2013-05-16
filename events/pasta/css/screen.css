@@ -1,0 +1,52 @@
+.short footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+
+.top, footer {
+  background-color: #a3351c; }
+
+.top {
+  height: 85px;
+  border-bottom: 1px solid #fff; }
+  .top div {
+    background-image: url("../img/bg-noodles.png");
+    background-repeat: repeat-x;
+    max-width: 1050px;
+    background-position: left center;
+    min-height: 47px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto; }
+    @media (max-width: 254px) {
+      .top div {
+        background-size: 62.35294%; } }
+    @media (min-width: 255px) and (max-width: 413px) {
+      .top div {
+        width: 255px; } }
+    @media (min-width: 414px) and (max-width: 572px) {
+      .top div {
+        width: 414px; } }
+    @media (min-width: 573px) and (max-width: 731px) {
+      .top div {
+        width: 573px; } }
+    @media (min-width: 732px) and (max-width: 890px) {
+      .top div {
+        width: 732px; } }
+    @media (min-width: 891px) and (max-width: 1049px) {
+      .top div {
+        width: 891px; } }
+    @media (min-width: 1050px) and (max-width: 1208px) {
+      .top div {
+        width: 1050px; } }
+
+h1, h2, h2 span, h3 {
+  line-height: 1em;
+  margin: 0; }
+
+h1 {
+  color: #a3351c; }
+
+h2 {
+  font-weight: normal; }

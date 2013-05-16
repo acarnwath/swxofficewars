@@ -1,0 +1,39 @@
+@import "_global.scss";
+
+.short footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.top, footer {
+	background-color: $red;
+}
+
+.top {
+	height: 85px;
+	border-bottom: 1px solid #fff;
+
+	div {
+		@include fixedBackgroundRepeat("../img/bg-noodles.png", 159px, 255px, 6);
+		background-position: left center;
+		min-height: 47px; // height of noodles
+		height: 100%;
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
+h1, h2, h2 span, h3 {
+	line-height: 1em;
+	margin: 0;
+}
+
+h1 {
+	color: $red;
+}
+
+h2 {
+	font-weight: normal;
+}

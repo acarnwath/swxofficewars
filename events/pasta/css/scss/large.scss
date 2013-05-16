@@ -1,0 +1,109 @@
+@import "_global.scss";
+
+body {
+	background: url("../img/bg-large.png") no-repeat fixed center center;
+}
+@media (min-width:1080px), (min-height: 757px) {
+	body {
+		background-size: cover;
+	}
+}
+
+.body {
+	margin: 60px 3%;
+}
+
+header, section {
+	@include boxSizing();
+}
+
+
+header, .details, .date {
+	padding: 20px;
+	position: relative;
+	left: -105%;
+}
+
+$contentWidth: 70%;
+
+header, .details {
+	background: #fff;
+	width: $contentWidth;
+	z-index: 2;
+}
+
+header {
+	padding-top: 40px;
+	padding-bottom: 0;
+}
+
+.details {
+	padding-top: 0;
+}
+
+.date {
+	z-index: 1;
+	background: rgba(0,0,0,1);
+	color: #fff;
+	width: 100% - $contentWidth;
+	float: right;
+	text-align: center;
+
+	h2 {
+		text-transform: uppercase;
+
+		span {
+			display: block;
+			font-size: 150px;
+			font-weight: bold;
+		}
+	}
+}
+
+@include keyframes(fly-in) {
+	from {left: -105%;}
+	to {left: 0%;}
+}
+
+.js-ready {
+	header, section {
+		@include addPrefixes(animation, fly-in ease-in 1);
+		// this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)
+		@include addPrefixes(animation-fill-mode,forwards);
+		@include addPrefixes(animation-duration, .4s);
+	}
+
+
+	header, .details {
+		@include addPrefixes(animation-delay, 0);
+	}
+
+	.date {
+		@include addPrefixes(animation-delay, .175s);
+	}
+}
+
+
+h1 {
+	font-size: 45px;
+	margin-bottom: 10px;
+	word-wrap: break-word;
+    @include addPrefixes('hyphens', auto);
+    overflow-wrap: hyphenate;
+}
+
+@media (min-width: 1080px) {
+	h1 {
+		font-size: 86px;
+	}
+}
+
+h2 {
+	font-size: 24px;
+	padding-bottom: 20px;
+}
+
+
+footer {
+	clear: both;
+}

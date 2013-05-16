@@ -1,0 +1,6 @@
+body {
+  background: url("../img/bg-small.png") no-repeat fixed center center; }
+
+@media (min-width: 1080px), (min-height: 757px) {
+  body {
+    background-size: cover; } }

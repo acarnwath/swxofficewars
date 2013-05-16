@@ -1,0 +1,189 @@
+// ==========================================================================
+//   Helper classes from HTML5 Boilerplate
+// ========================================================================== 
+
+// Image replacement
+%ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	*text-indent: -9999px;
+	
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+%hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+%visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+
+	// Extends the .visuallyhidden class to allow the element to be focusable
+	// when navigated to via the keyboard: h5bp.com/p
+	&.focusable {
+		&:active, &:focus {
+			clip: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			position: static;
+			width: auto;
+		}
+	}
+}
+
+// Hide visually and from screenreaders, but maintain layout
+%invisible {
+	visibility: hidden;
+}
+
+// Clearfix: contain floats
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    `contenteditable` attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+%clearfix {
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+	// For IE 6/7 only
+	// Include this rule to trigger hasLayout and contain floats.
+	*zoom: 1;
+}
+
+///////////// Authors Variables
+
+$red: #a3351c;
+
+///////////// Authors Functions
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+///////////// Authors Mixins
+
+@mixin addPrefixes($key, $value) {
+	-webkit-#{$key}: $value;
+	-moz-#{$key}: $value;
+	-o-#{$key}: $value;
+	$key: $value;
+}
+
+@mixin roundedCorners($px:3px, $which:'all') {
+	@if($which == "all") {
+		@include addPrefixes(border-radius, $px);
+	} @else {
+		@if ($which == "top" or $which == "left") {
+			@include addPrefixes(border-top-left-radius, $px);
+		}
+		@if ($which == "bottom" or $which == "left") {
+			@include addPrefixes(border-bottom-left-radius, $px);
+		}
+		@if ($which == "top" or $which == "right") {
+			@include addPrefixes(border-top-right-radius, $px);
+		}
+		@if ($which == "bottom" or $which == "right") {
+			@include addPrefixes(border-bottom-right-radius, $px);
+		}
+	}
+} // roundedCorners
+
+@mixin boxSizing($v:border-box) {
+	@include addPrefixes(box-sizing, $v);
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+} // keyframes
+
+
+// for repeating a background pattern at specific intervals 
+// 		image: (- *) pattern: (- * -)
+// 		imageSize: size of image (- *) 
+// 		patternSize: size of pattern (- * -)
+// 		maxRepeat: maximum number of times the pattern should show (1: - * -, 2: - * - * -)
+// 		minRepeat: minimum number of times the pattern should show (1: - * -, 2: - * - * -)
+// 		viewportAdjust: amount to subtract from the viewport size for the parent container
+// 		repeatDirection: "x" or "y"
+@mixin fixedBackgroundRepeat($imageUrl, $imageSize, $patternSize, $maxRepeat:2, $minRepeat:1, $viewportAdjust:0px, $repeatDirection: x) {
+	@if unitless($imageSize) {
+		@warn "Assuming $imageSize to be in pixels";
+		$imageSize: $imageSize * 1px;
+	}
+	@if unitless($patternSize) {
+		@warn "Assuming $patternSize to be in pixels";
+		$patternSize: $patternSize * 1px;
+	}
+	@if unitless($viewportAdjust) {
+		@warn "Assuming $viewportAdjust to be in pixels";
+		$viewportAdjust: $viewportAdjust * 1px;
+	}
+	$overlap: $patternSize - $imageSize;
+	@if($overlap < 0) {
+		@warn "$patternSize should be greater than $imageSize";
+		$overlap: 0;
+	}
+
+	background-image: url($imageUrl);
+	background-repeat: repeat-#{$repeatDirection};
+	// Should not exceed the max number of repeats
+	@if($repeatDirection == "x") {
+		max-width: $imageSize*$maxRepeat + $overlap;
+	} @else {
+		max-height: $imageSize*$maxRepeat + $overlap;
+	}
+	
+	// background should scale if it's less than the size of the first pattern
+	@media (max-width:$imageSize+$overlap - 1px) {
+		background-size: strip-units($imageSize/$patternSize)*100#{"%"};
+	}
+
+	@for $i from $minRepeat through $maxRepeat {
+		@if($repeatDirection == "x") {
+			@media  (min-width: $imageSize*$i + $overlap) and (max-width: $imageSize*($i+1) + $overlap - 1px) {
+				width: $imageSize*$i + $overlap;
+			}
+		} @else {
+			@media (min-height: $imageSize*$i + $overlap) and (max-height: $imageSize*($i+1) + $overlap - 1px) {
+				height: $imageSize*$i + $overlap;
+			}
+		}
+	} // for
+} // fixedBackgroundRepeat
