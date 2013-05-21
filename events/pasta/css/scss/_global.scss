@@ -79,6 +79,10 @@
 ///////////// Authors Variables
 
 $red: #a3351c;
+$green: #8d9c41;
+$baseFontSize: 16px;
+$headerFont: "Salsa", sans-serif;
+$copyFont: "Overlock", serif;
 
 ///////////// Authors Functions
 
@@ -133,6 +137,11 @@ $red: #a3351c;
     }
 } // keyframes
 
+@mixin cssReady() {
+	#css-ready {
+		border: 1px solid transparent;
+	}
+}
 
 // for repeating a background pattern at specific intervals 
 // 		image: (- *) pattern: (- * -)

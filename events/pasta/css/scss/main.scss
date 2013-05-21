@@ -120,8 +120,8 @@ ol {
 			display: inline-block;
 			line-height: $radius + 1px; // make it a little lower in the circle
 			text-align: center;
-			margin-right: $margin;
-			margin-left: -($radius + $margin);
+			margin: 0 $margin 0 (-($radius + $margin));
+			font-weight: bold;
 		}
 	}
 }

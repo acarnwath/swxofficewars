@@ -1,11 +1,8 @@
 @import "_global.scss";
 
-body {
-	background: url("../img/bg-small.png") no-repeat fixed center center;
-}
-
-@media (min-width:1080px), (min-height: 757px) {
+@media (max-width:349px) {
 	body {
+		background-image:url(../img/bg-small.jpg);
 		background-size: cover;
 	}
 }

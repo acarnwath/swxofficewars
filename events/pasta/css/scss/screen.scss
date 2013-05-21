@@ -1,4 +1,38 @@
 @import "_global.scss";
+$opacity: .5;
+
+body {
+	font-size: $baseFontSize;
+	font-family: $copyFont;
+}
+
+body {
+	background: url("../img/bg-large.jpg") no-repeat fixed center center;
+}
+@media (min-width:1080px), (min-height: 757px) {
+	body {
+		background-size: cover;
+	}
+}
+
+h1, h2, footer {
+	font-family: $headerFont;
+	margin: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: none;
+	color: $green;
+
+	&:hover {
+		text-decoration: underline;
+		color: $red;
+	}
+}
 
 .short footer {
 	position: fixed;
@@ -11,12 +45,61 @@
 	background-color: $red;
 }
 
+footer {
+	border-top: 1px solid #fff;
+	padding: 20px 20px 10px;
+	@include addPrefixes(box-sizing, border-box);
+	overflow: hidden;
+
+	.icon {
+		float: left;
+		opacity: $opacity;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0 0 0 20px;
+		padding: 0;
+		vertical-align: bottom;
+	}
+	li {
+		float: left;
+		color: #fff;
+		line-height: 62px;
+		font-size: 2em;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			vertical-align: middle;
+			padding-left: 10px;
+			margin-right: 10px;
+			height: 1em;
+			border-right: 1px solid #fff;
+		}
+		&:first-child:before {
+			display: none;
+		}
+	}
+	.home {
+		float: right;
+		font-family: $copyFont;
+		text-transform: uppercase;
+		color: #000;
+		color: rgba(0,0,0,.8);
+		padding: 10px;
+		img {
+			display: block;
+		}
+	}
+}
+
 .top {
 	height: 85px;
 	border-bottom: 1px solid #fff;
 
 	div {
 		@include fixedBackgroundRepeat("../img/bg-noodles.png", 159px, 255px, 6);
+		opacity: $opacity;
 		background-position: left center;
 		min-height: 47px; // height of noodles
 		height: 100%;
@@ -25,8 +108,7 @@
 	}
 }
 
-h1, h2, h2 span, h3 {
-	line-height: 1em;
+h1, h2, h3 {
 	margin: 0;
 }
 
@@ -34,6 +116,26 @@ h1 {
 	color: $red;
 }
 
-h2 {
+h2 span {
+	font-family: $copyFont;
+	line-height: .8em;
+}
+
+h2, h3 {
 	font-weight: normal;
+}
+
+.details {
+	font-size: 1.2em;
+}
+
+.right {
+	text-align: right;
+	font-size: 1.25em;
+}
+
+.icon {
+	img, ul {
+		display: inline-block;
+	}
 }

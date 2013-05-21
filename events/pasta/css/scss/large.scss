@@ -1,109 +1,136 @@
 @import "_global.scss";
 
-body {
-	background: url("../img/bg-large.png") no-repeat fixed center center;
-}
-@media (min-width:1080px), (min-height: 757px) {
-	body {
-		background-size: cover;
-	}
-}
-
 .body {
 	margin: 60px 3%;
+	position: relative;
 }
 
 header, section {
 	@include boxSizing();
 }
 
-
 header, .details, .date {
 	padding: 20px;
-	position: relative;
-	left: -105%;
 }
 
 $contentWidth: 70%;
 
 header, .details {
-	background: #fff;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, .9);
 	width: $contentWidth;
 	z-index: 2;
+	position: relative;
+	left: -106%;
 }
 
 header {
-	padding-top: 40px;
 	padding-bottom: 0;
+	box-shadow: -3px -3px 6px -2px rgba(0,0,0,.3), 0px 0px 0px 0px #000, 3px -3px 6px -2px rgba(0,0,0,.3); // no bottom shadow
 }
 
 .details {
 	padding-top: 0;
+	box-shadow: -3px 3px 6px -2px rgba(0,0,0,.3), 0px 0px 0px 0px #000, 3px 3px 6px -2px rgba(0,0,0,.3);  // no top shadow
+}
+
+h1 {
+	font-size: 3.5em;
+	line-height: 1em;
+	margin-bottom: 10px;
+	word-wrap: break-word;
+}
+
+h2 {
+	font-size: 1.8em;
+	line-height: 1em;
+	padding-bottom: 20px;
 }
 
 .date {
 	z-index: 1;
-	background: rgba(0,0,0,1);
+	background-color: #000;
+	background-color: rgba(0,0,0,.7);
 	color: #fff;
 	width: 100% - $contentWidth;
-	float: right;
 	text-align: center;
+	position: absolute;
+	top: 20px;
+	right: -106%;
+	margin-left: -106%;
 
 	h2 {
 		text-transform: uppercase;
+		padding-bottom: 0;
+		font-family: $copyFont;
 
 		span {
 			display: block;
-			font-size: 150px;
+			font-size: 4em;
 			font-weight: bold;
+		}
+	}
+
+	.icon {
+		img {
+			max-width: 30%;
+		}
+		font-size: ((54px/2)/$baseFontSize)#{em};
+	}
+}
+
+@media (min-width: 1080px) {
+	header {
+		padding-top: 40px;
+	}
+
+	h1 {
+		font-size: 5.8em;
+		line-height: 1em;
+	}
+
+	h2 {
+		font-size: 2em;
+		line-height: 1em;
+	}
+
+	.date {
+		h2 span {
+			font-size: 7em;
+			line-height: .8em;
+		}
+
+		.icon {
+			font-size: (54px/$baseFontSize)#{em};
 		}
 	}
 }
 
-@include keyframes(fly-in) {
-	from {left: -105%;}
+@include keyframes(fly-in-left) {
+	from {left: -106%;}
 	to {left: 0%;}
 }
+@include keyframes(fly-in-right) {
+	from {right: 106%;}
+	to {right: 0%;}
+}
 
-.js-ready {
+//.js-ready {
+
 	header, section {
-		@include addPrefixes(animation, fly-in ease-in 1);
-		// this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)
+		@include addPrefixes(animation-timing-function, ease-in);
+		@include addPrefixes(animation-iteration-count, 1);
+		// this makes sure that after animation is done we remain at the last keyframe value
 		@include addPrefixes(animation-fill-mode,forwards);
 		@include addPrefixes(animation-duration, .4s);
 	}
 
-
 	header, .details {
+		@include addPrefixes(animation-name, fly-in-left);
 		@include addPrefixes(animation-delay, 0);
 	}
-
 	.date {
+		@include addPrefixes(animation-name, fly-in-right);
 		@include addPrefixes(animation-delay, .175s);
 	}
-}
-
-
-h1 {
-	font-size: 45px;
-	margin-bottom: 10px;
-	word-wrap: break-word;
-    @include addPrefixes('hyphens', auto);
-    overflow-wrap: hyphenate;
-}
-
-@media (min-width: 1080px) {
-	h1 {
-		font-size: 86px;
-	}
-}
-
-h2 {
-	font-size: 24px;
-	padding-bottom: 20px;
-}
-
-
-footer {
-	clear: both;
-}
+//}
