@@ -1,5 +1,14 @@
 @import "_global.scss";
 
+@include keyframes(fly-in-left) {
+	from {left: -106%;}
+	to {left: 0%;}
+}
+@include keyframes(fly-in-right) {
+	from {right: 106%;}
+	to {right: 0%;}
+}
+
 .body {
 	margin: 60px 3%;
 	position: relative;
@@ -7,6 +16,11 @@
 
 header, section {
 	@include boxSizing();
+	@include addPrefixes(animation-timing-function, ease-in);
+	@include addPrefixes(animation-iteration-count, 1);
+	// this makes sure that after animation is done we remain at the last keyframe value
+	@include addPrefixes(animation-fill-mode,forwards);
+	@include addPrefixes(animation-duration, .4s);
 }
 
 header, .details, .date {
@@ -22,6 +36,8 @@ header, .details {
 	z-index: 2;
 	position: relative;
 	left: -106%;
+	@include addPrefixes(animation-name, fly-in-left);
+	@include addPrefixes(animation-delay, 0);
 }
 
 header {
@@ -32,6 +48,11 @@ header {
 .details {
 	padding-top: 0;
 	box-shadow: -3px 3px 6px -2px rgba(0,0,0,.3), 0px 0px 0px 0px #000, 3px 3px 6px -2px rgba(0,0,0,.3);  // no top shadow
+}
+
+.right {
+	text-align: right;
+	font-size: 1.25em;
 }
 
 h1 {
@@ -45,6 +66,17 @@ h2 {
 	font-size: 1.8em;
 	line-height: 1em;
 	padding-bottom: 20px;
+
+	span {
+		font-family: $copyFont;
+		line-height: .8em;
+	}
+}
+
+.icon {
+	img, ul {
+		display: inline-block;
+	}
 }
 
 .date {
@@ -58,6 +90,8 @@ h2 {
 	top: 20px;
 	right: -106%;
 	margin-left: -106%;
+	@include addPrefixes(animation-name, fly-in-right);
+	@include addPrefixes(animation-delay, .175s);
 
 	h2 {
 		text-transform: uppercase;
@@ -106,31 +140,44 @@ h2 {
 	}
 }
 
-@include keyframes(fly-in-left) {
-	from {left: -106%;}
-	to {left: 0%;}
+footer {
+	overflow: hidden;
+
+	.icon {
+		float: left;
+		opacity: $opacity;
+	}
+
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		overflow: hidden;
+		vertical-align: bottom;
+		margin: 0 0 0 20px;
+	}
+	li {
+		float: left;
+		color: #fff;
+		line-height: 62px;
+		font-size: 2em;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			vertical-align: baseline;
+			padding-left: 10px;
+			margin-right: 10px;
+			height: .75em;
+			border-right: 1px solid #fff;
+		}
+		&:first-child:before {
+			display: none;
+		}
+	}
+
+	.home {
+		float: right;
+		padding: 10px;
+	}
 }
-@include keyframes(fly-in-right) {
-	from {right: 106%;}
-	to {right: 0%;}
-}
-
-//.js-ready {
-
-	header, section {
-		@include addPrefixes(animation-timing-function, ease-in);
-		@include addPrefixes(animation-iteration-count, 1);
-		// this makes sure that after animation is done we remain at the last keyframe value
-		@include addPrefixes(animation-fill-mode,forwards);
-		@include addPrefixes(animation-duration, .4s);
-	}
-
-	header, .details {
-		@include addPrefixes(animation-name, fly-in-left);
-		@include addPrefixes(animation-delay, 0);
-	}
-	.date {
-		@include addPrefixes(animation-name, fly-in-right);
-		@include addPrefixes(animation-delay, .175s);
-	}
-//}

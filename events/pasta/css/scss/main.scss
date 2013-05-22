@@ -97,6 +97,16 @@ textarea {
    Author Styles
    ========================================================================== */
 
+body {
+	font-size: $baseFontSize;
+	font-family: $copyFont;
+}
+
+h1, h2, footer {
+	font-family: $headerFont;
+	margin: 0;
+}
+
 ol {
 	list-style-type: none;
 	counter-reset: my-counter;

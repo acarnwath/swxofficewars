@@ -1,171 +1,86 @@
 body {
-  font-size: 16px;
-  font-family: "Overlock", serif;
-}
-
-body {
-  background: url("../img/bg-large.jpg") no-repeat fixed center center;
-}
+  background: url("../img/bg-large.jpg") no-repeat fixed center center; }
 
 @media (min-width: 1080px), (min-height: 757px) {
   body {
-    background-size: cover;
-  }
-}
-h1, h2, footer {
-  font-family: "Salsa", sans-serif;
-  margin: 0;
-}
-
+    background-size: cover; } }
 p:last-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 a {
   text-decoration: none;
-  color: #8d9c41;
-}
-a:hover {
-  text-decoration: underline;
-  color: #a3351c;
-}
+  color: #8d9c41; }
+  a:hover {
+    text-decoration: underline;
+    color: #a73d30; }
 
 .short footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-}
+  width: 100%; }
 
 .top, footer {
-  background-color: #a3351c;
-}
+  background-color: #a73d30; }
 
 footer {
   border-top: 1px solid #fff;
   padding: 20px 20px 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  overflow: hidden;
-}
-footer .icon {
-  float: left;
-  opacity: 0.5;
-}
-footer ul {
-  list-style-type: none;
-  margin: 0 0 0 20px;
-  padding: 0;
-  vertical-align: bottom;
-}
-footer li {
-  float: left;
-  color: #fff;
-  line-height: 62px;
-  font-size: 2em;
-}
-footer li:before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: 10px;
-  margin-right: 10px;
-  height: 1em;
-  border-right: 1px solid #fff;
-}
-footer li:first-child:before {
-  display: none;
-}
-footer .home {
-  float: right;
-  font-family: "Overlock", serif;
-  text-transform: uppercase;
-  color: #000;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-}
-footer .home img {
-  display: block;
-}
+  -o-box-sizing: border-box; }
+  footer .home {
+    font-family: "Overlock", serif;
+    text-transform: uppercase;
+    color: #000;
+    color: rgba(0, 0, 0, 0.8); }
+    footer .home img {
+      display: block;
+      margin: 0 auto; }
 
 .top {
   height: 85px;
-  border-bottom: 1px solid #fff;
-}
-.top div {
-  background-image: url("../img/bg-noodles.png");
-  background-repeat: repeat-x;
-  max-width: 1050px;
-  opacity: 0.5;
-  background-position: left center;
-  min-height: 47px;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-}
-@media (max-width: 254px) {
+  border-bottom: 1px solid #fff; }
   .top div {
-    background-size: 62.35294%;
-  }
-}
-@media (min-width: 255px) and (max-width: 413px) {
-  .top div {
-    width: 255px;
-  }
-}
-@media (min-width: 414px) and (max-width: 572px) {
-  .top div {
-    width: 414px;
-  }
-}
-@media (min-width: 573px) and (max-width: 731px) {
-  .top div {
-    width: 573px;
-  }
-}
-@media (min-width: 732px) and (max-width: 890px) {
-  .top div {
-    width: 732px;
-  }
-}
-@media (min-width: 891px) and (max-width: 1049px) {
-  .top div {
-    width: 891px;
-  }
-}
-@media (min-width: 1050px) and (max-width: 1208px) {
-  .top div {
-    width: 1050px;
-  }
-}
+    background-image: url("../img/bg-noodles.png");
+    background-repeat: repeat-x;
+    max-width: 1050px;
+    opacity: 0.5;
+    background-position: left center;
+    min-height: 47px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto; }
+    @media (max-width: 254px) {
+      .top div {
+        background-size: 62.35294%; } }
+    @media (min-width: 255px) and (max-width: 413px) {
+      .top div {
+        width: 255px; } }
+    @media (min-width: 414px) and (max-width: 572px) {
+      .top div {
+        width: 414px; } }
+    @media (min-width: 573px) and (max-width: 731px) {
+      .top div {
+        width: 573px; } }
+    @media (min-width: 732px) and (max-width: 890px) {
+      .top div {
+        width: 732px; } }
+    @media (min-width: 891px) and (max-width: 1049px) {
+      .top div {
+        width: 891px; } }
+    @media (min-width: 1050px) and (max-width: 1208px) {
+      .top div {
+        width: 1050px; } }
 
 h1, h2, h3 {
-  margin: 0;
-}
+  margin: 0; }
 
 h1 {
-  color: #a3351c;
-}
-
-h2 span {
-  font-family: "Overlock", serif;
-  line-height: .8em;
-}
+  color: #a73d30; }
 
 h2, h3 {
-  font-weight: normal;
-}
+  font-weight: normal; }
 
 .details {
-  font-size: 1.2em;
-}
-
-.right {
-  text-align: right;
-  font-size: 1.25em;
-}
-
-.icon img, .icon ul {
-  display: inline-block;
-}
+  font-size: 1.2em; }

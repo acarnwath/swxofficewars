@@ -75,3 +75,39 @@ h3 {
 //   Author Print styles
 // ==========================================================================
 
+img, footer .icon {
+	display:none;
+}
+h1, h2, h3 {
+	margin: 0;
+}
+h2 {
+	font-size: 1em;
+}
+header, .date {
+	text-align: center;
+}
+.date, .details {
+	border-top: 1px solid #000;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+hr {
+	border-color: #000;
+	margin: 10px 0;
+}
+.date {
+	h2, h3 {
+		font-family: $copyFont;
+		font-size: 1.2em;
+	}
+	h2 {
+		font-weight: bold;
+	}
+	strong {
+		font-size: 1.5em;
+	}
+	p {
+		margin: 0;
+	}
+}
