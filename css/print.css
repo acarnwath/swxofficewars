@@ -76,15 +76,19 @@ h4 {
   font-size: 14px; }
 
 .thumbs {
-  font-size: 0; }
+  font-size: 0;
+  text-align: center; }
   .thumbs .slide-up {
     margin-bottom: 15px; }
   .thumbs li {
     font-size: 14px;
     margin-left: 3%;
-    width: 22.75%; }
-    .thumbs li:first-child {
+    text-align: left;
+    width: 31.33333%; }
+    .thumbs li:nth-child(3n+1) {
       margin-left: 0; }
+    .thumbs li:nth-child(n+4) {
+      margin-top: 10px; }
   .thumbs a[href]:after {
     font-size: 12px;
     font-weight: normal; }

@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>SWX Office Wars - Uno Tournament</title>
+		<title>Sitequirx - Uno Tournament</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
 		<meta name="robots" content="noindex">
@@ -43,7 +43,7 @@
 
 		<div class="content<?php if(isset($home)) { echo ' home'; }?>">
 			<header>
-				<h2>Siteworx Office Wars Presents the 2013</h2>
+				<h2>Sitequirx Presents the 2013</h2>
 				<h1>UNO <span>Tournament</span></h1>
 			</header>
 
